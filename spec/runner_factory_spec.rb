@@ -10,7 +10,7 @@ describe RunnerFactory do
     it "returns the PickWinnersRunner when not showing past winners" do
       options = double(:[] => false)
 
-      expect(runner_factory.for_options(options)).to be_a(PickWinnersRunner)
+      expect(runner_factory.for_options(options)).to be_a(PicksWinnersRunner)
     end
 
     it "returns the ShowPastWinnersRunner when showing past winners" do

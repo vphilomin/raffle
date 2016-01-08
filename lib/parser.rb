@@ -8,10 +8,9 @@ class Parser
   def parse(args)
     set_default_options
 
-    args_array = args.split
-    parse_flag_options!(args_array)
+    parse_flag_options!(args)
 
-    parse_nonflag_options(args_array)
+    parse_nonflag_options(args)
 
     options
   end
@@ -25,7 +24,7 @@ class Parser
     options[:show_past_winners] = false
   end
 
-  def parse_flag_options!(args_array)
+  def parse_flag_options!(args)
     opt_parser = OptionParser.new do |opts|
       opts.on("-n NUMBER OF WINNERS", Integer, "Number of winners to pick") do |n|
         options[:winner_count] = n
@@ -36,11 +35,11 @@ class Parser
       end
     end
 
-    opt_parser.parse!(args_array)
+    opt_parser.parse!(args)
   end
 
-  def parse_nonflag_options(args_array)
-    options[:entrants_filename] = args_array[0]
-    options[:prize] = args_array[1]
+  def parse_nonflag_options(args)
+    options[:entrants_filename] = args[0]
+    options[:prize] = args[1]
   end
 end

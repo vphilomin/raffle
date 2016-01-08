@@ -6,7 +6,7 @@ describe Parser do
   describe '#parse' do
   
     context "when no flags" do
-      let(:args) { "140names POODR" }
+      let(:args) { ["140names", "POODR"] }
 
       it "gets the raffle entrants filename" do
         expect(parsed_options[:entrants_filename]).to eq("140names")
@@ -26,7 +26,7 @@ describe Parser do
     end
 
     context "with a number of winners flag" do
-      let(:args) { "-n 2 140names POODR" }
+      let(:args) { ["-n", "2", "140names", "POODR"] }
 
       it "parses the number of winners to pick" do
         expect(parsed_options[:winner_count]).to eq(2)
@@ -39,7 +39,7 @@ describe Parser do
     end
 
     context "with a show past winners flag" do
-      let(:args) { "--winners 140names" }
+      let(:args) { ["--winners", "140names"] }
 
       it "sets the flag to display past winners rather than pick a new winner" do
         expect(parsed_options[:show_past_winners]).to eq(true)

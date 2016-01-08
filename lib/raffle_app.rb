@@ -6,6 +6,7 @@ class RaffleApp
 
   def run(argv)
     options = @parser.parse(argv)
-    @runner_factory.for_options(options)
+    runner = @runner_factory.for_options(options)
+    runner.run
   end
 end
