@@ -23,6 +23,14 @@ describe Parser do
       it "does not show past winners instead of picking a new one" do
         expect(parsed_options[:show_past_winners]).to eq(false)
       end
+
+      context "with special characters in the prize name" do
+        let(:args) { ["140names", "$20000"] }
+
+        it "parses the prize properly" do
+          expect(parsed_options[:prize]).to eq("$20000")
+        end
+      end
     end
 
     context "with a number of winners flag" do

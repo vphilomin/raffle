@@ -12,4 +12,11 @@ class YamlStore
       store["winners"][winner] = prize 
     end
   end
+
+  def read
+    store = YAML::Store.new(@store_name_provider.name)
+    store.transaction do
+      store["winners"] ||= {}
+    end
+  end
 end

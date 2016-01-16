@@ -18,7 +18,9 @@ class RunnerFactory
                                   StoreNameProvider.new(options[:entrants_filename]))),
                              options[:prize])
     else
-      ShowPastWinnersRunner.new
+      ShowPastWinnersRunner.new(YamlStore.new(
+                                  StoreNameProvider.new(options[:entrants_filename])),
+                                ConsoleOutput.new)
     end
   end
 end
