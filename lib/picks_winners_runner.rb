@@ -7,8 +7,12 @@ class PicksWinnersRunner
   end
 
   def run
-    entrants = @provides_entrants.provide
-    winner = @picks_winners.pick(entrants)
-    @output.announce(winner, @prize)
+    entrants = provides_entrants.provide
+    winner = picks_winners.pick(entrants)
+    output.announce(winner, prize)
   end
+
+  private
+  
+  attr_reader :provides_entrants, :picks_winners, :output, :prize
 end

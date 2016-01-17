@@ -4,6 +4,10 @@ class StoreNameProvider
   end
 
   def name
-    "#{@entrants_filename}.raffle"
+    "#{entrants_filename}.raffle"
   end
+
+  private
+
+  attr_reader :entrants_filename
 end

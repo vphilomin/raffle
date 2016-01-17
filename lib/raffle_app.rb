@@ -5,8 +5,12 @@ class RaffleApp
   end
 
   def run(argv)
-    options = @parser.parse(argv)
-    runner = @runner_factory.for_options(options)
+    options = parser.parse(argv)
+    runner = runner_factory.for_options(options)
     runner.run
   end
+
+  private
+
+  attr_reader :parser, :runner_factory
 end

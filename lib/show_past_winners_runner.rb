@@ -5,9 +5,13 @@ class ShowPastWinnersRunner
   end
 
   def run
-    winners = @store.read
+    winners = store.read
     winners.each do |winner, prize|
-      @output.announce(winner, prize)
+      output.announce(winner, prize)
     end
   end
+
+  private
+
+  attr_reader :store, :output
 end
