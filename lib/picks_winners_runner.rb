@@ -8,8 +8,9 @@ class PicksWinnersRunner
 
   def run
     entrants = provides_entrants.provide
-    winner = picks_winners.pick(entrants)
-    output.announce(winner, prize)
+    picks_winners.pick(entrants) do |winner|
+      output.announce(winner, prize)
+    end
   end
 
   private
